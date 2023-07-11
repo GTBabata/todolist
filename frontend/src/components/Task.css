@@ -1,0 +1,50 @@
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  padding: 10px 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+td {
+  color: #333;
+  font-weight: 600;
+}
+
+tr:nth-child(even) {
+  background-color: #f5f5f5;
+}
+
+select {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  background-color: #ebebeb;
+  outline: none;
+}
+
+.btn-action {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.btn-edit {
+  background-color: orange;
+  margin-right: 5px;
+}
+
+.btn-delete {
+  background-color: red;
+}
