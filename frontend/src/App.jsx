@@ -1,37 +1,46 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 import Task from "./components/Task";
 
-function App() {
-  const addTask = async (e) => {
-    e.preventDefault();
-    const title = "asd";
+import { fetchData, createTask } from "./utils";
 
-    await fetch("http://localhost:3333/tasks", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: title,
-    });
+function App() {
+  const [inputValue, setInputValue] = useState("");
+  const [tasks, setTasks] = useState([]);
+
+  const fetchedTasks = async () => {
+    await fetchData()
+      .then((data) => setTasks(data))
+      .catch((err) => console.log(err));
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    createTask(inputValue);
+    setInputValue("");
+  };
+
+  useEffect(() => {
+    fetchedTasks();
+  }, [tasks]);
 
   return (
     <div>
       <main>
-        <form className="add-form">
+        <form className="add-form" onSubmit={handleSubmit}>
           <input
             type="text"
             placeholder="Adicionar nova tarefa"
             className="input-task"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
           />
-          <button
-            type="submit"
-            className="btn-submit"
-            onSubmit={(e) => addTask(e)}
-          >
+          <button type="submit" className="btn-submit">
             +
           </button>
         </form>
 
-        <Task />
+        <Task tasks={tasks} setTasks={setTasks} />
       </main>
     </div>
   );

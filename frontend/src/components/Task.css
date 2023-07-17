@@ -45,6 +45,11 @@ select {
   margin-right: 5px;
 }
 
+.btn-done {
+  background-color: lime;
+  margin-right: 5px;
+}
+
 .btn-delete {
   background-color: red;
 }
