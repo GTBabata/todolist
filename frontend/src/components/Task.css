@@ -53,3 +53,14 @@ select {
 .btn-delete {
   background-color: red;
 }
+
+.bi {
+  font-size: 20px;
+  padding: 0 5px;
+}
+
+.modal-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
