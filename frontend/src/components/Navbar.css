@@ -1,0 +1,16 @@
+.navbar {
+  background-color: #fff;
+}
+
+.link {
+  text-decoration: none;
+  font-size: 20px;
+  color: black;
+  margin-right: 20px;
+}
+
+.navbar-title {
+  background-color: #3bd1ca;
+  border-radius: 10px;
+  padding: 10px 20px;
+}

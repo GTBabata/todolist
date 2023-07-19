@@ -1,6 +1,34 @@
+body {
+  background-color: #3bd1ca;
+}
+
+.tasks-table {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px auto;
+}
+
+.btn-submit {
+  background-color: #3bd1ca;
+  height: 50px;
+  width: 50px;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 1.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  cursor: pointer;
+}
+
 table {
   border-collapse: collapse;
-  width: 100%;
+  width: 90%;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
 }
 
 td,
@@ -63,4 +91,9 @@ select {
   display: flex;
   align-items: center;
   justify-content: space-around;
+}
+
+.modal {
+  display: block;
+  top: 300px;
 }

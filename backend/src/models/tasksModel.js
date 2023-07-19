@@ -5,14 +5,28 @@ const getAll = async () => {
   return tasks;
 };
 
+const getTask = async (id) => {
+  const task = await connection.execute("SELECT * FROM tasks WHERE id = ?", [
+    id,
+  ]);
+  return task;
+};
+
+const getRecentTasks = async () => {
+  const recent = await connection.execute(
+    "SELECT * FROM tasks ORDER BY created_at DESC LIMIT 5"
+  );
+  return recent;
+};
+
 const createTask = async (task) => {
-  const { title } = task;
+  const { title, description } = task;
 
   const dateUTC = new Date(Date.now()).toUTCString();
 
   const [createdTask] = await connection.execute(
-    "INSERT INTO tasks (title, status, created_at) VALUES (?, ?, ?)",
-    [title, "pendente", dateUTC]
+    "INSERT INTO tasks (title, description,  status, created_at) VALUES (?, ?, ?, ?)",
+    [title, description, "pending", dateUTC]
   );
 
   return { insertId: createdTask.insertId };
@@ -37,8 +51,11 @@ const updateTask = async (id, task) => {
 
   return updatedTask;
 };
+
 module.exports = {
   getAll,
+  getTask,
+  getRecentTasks,
   createTask,
   deleteTask,
   updateTask,

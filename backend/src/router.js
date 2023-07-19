@@ -5,7 +5,11 @@ const tasksMiddleware = require("./middlewares/tasksMiddleware");
 
 const router = express.Router();
 
+router.get("/tasks/recent", tasksController.getRecentTasks);
+
 router.get("/tasks", tasksController.getAll);
+
+router.get("/tasks/:id", tasksController.getTask);
 
 router.post(
   "/tasks",
